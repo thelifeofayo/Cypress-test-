@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
-describe('My first suite', () => {
-  it('my first test case ', () => {
+describe('My second suite', () => {
+  it('my second test case ', () => {
     cy.visit('https://rahulshettyacademy.com/seleniumPractise/#/')
     cy.get('.search-keyword').type('ca')
     cy.get('.product:visible').should('have.length',4)
@@ -14,13 +14,8 @@ describe('My first suite', () => {
         
       }
     })
-    //this is to return her expectation  for a text 
-    cy.get('.brand').should('have.text', 'GREENKART')
-
-    //this is to print logs 
-    cy.get('.brand').then(function(logoelement)
-    {
-      cy.log(logoelement.text())
-    })
+    cy.get('.cart-icon > img').click()
+    cy.contains('PROCEED TO CHECKOUT').click()
+    cy.contains('Place Order').click()
   })
 })
